@@ -1,0 +1,52 @@
+<div class="container">
+	<div class="row">
+		<div class="col-8">
+			<h1>welcome to my fucking awesome app</h1>
+
+			<form>
+				<div class="form-group">
+					<label for="firstName">Firstname</label>
+					<input type="text" class="form-control" id="input-firstname" >
+				</div>
+
+				<div class="form-group">
+					<label for="lastName">Lastname</label>
+					<input type="text" class="form-control" id="input-lastname" >
+				</div>
+				
+				<button type="submit" class="btn btn-primary" id="btn-submit">Submit</button>
+			</form>
+
+			<ul class="list-group list-group-flush mt-5" id="list">
+			</ul>
+
+		
+		</div>
+	</div>
+</div>
+
+
+<script>
+	const adj = ["is cool :D", "is super cool :)", "is a bitch ;)", "is gonna be rich :D", "is so awesome :)", "is stupid :("]
+
+	const buttonSubmit = document.getElementById("btn-submit")
+	const inputFirstName = document.getElementById("input-firstname")
+	const inputLastName = document.getElementById("input-lastname")
+	const ul = document.getElementById("list")
+
+	buttonSubmit.addEventListener("click", async (e) => {
+		e.preventDefault()
+
+		const firstName = inputFirstName.value
+		const lastName = inputLastName.value
+
+		inputFirstName.value = ""
+		inputLastName.value = ""
+	
+		const li = document.createElement("li")
+		li.className = "list-group-item"
+		li.textContent = `${firstName} ${lastName} ${adj[Math.floor(Math.random() * adj.length)]}`
+		ul.appendChild(li)
+
+	})
+</script>
